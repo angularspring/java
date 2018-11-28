@@ -322,6 +322,9 @@ THE SOFTWARE.
 @angular/platform-browser
 MIT
 
+@angular/forms
+MIT
+
 @angular/router
 MIT
 
