@@ -1,0 +1,24 @@
+/* You can add global styles to this file, and also import other style files */
+.angular_img{
+    width:50px;
+}
+.spring_img{
+    width: 40px;
+    margin-left: -16px;
+}
+a {
+    cursor: pointer;
+}
+.tut_img {
+    width: auto;
+    max-width: 100%;
+}
+.text-indent-1{
+    text-indent: 0.5rem;
+}
+.text-indent-2{
+    text-indent: 1rem;
+}
+.text-indent-3{
+    text-indent: 2rem;
+}

@@ -1,0 +1,96 @@
+<div class="container mb-3">
+    <h2 class="text-center col-12 my-3">Angular 7 - Project Creation</h2>
+    <app-prev-next-article [url]='currentUrl' class="col-12 p-0"></app-prev-next-article>
+    <div class="col-12 row my-3 mx-0">
+      <p class="text-indent-3">Welcome to Angular world, we have seen angular setup and editor 
+        setup in previous tutorial. The next step is create a new angular project and 
+        explore the new dimension of web coding.</p>
+    </div>
+    <div class="col-12 row mx-0 my-2">
+        <p class="h5"><span class="font-weight-bold">Step 1 : </span>Create a new workspace</p>
+        <div class="ml-md-3 col-12 p-0">
+            <p>Create a new workspace (folder) in 'D:' or 'E:' drive.</p>
+            <p>Ex: D:\Angular</p>
+        </div>
+    </div>
+    <div class="col-12 row mx-0 my-2">
+        <p class="h5"><span class="font-weight-bold">Step 2 : </span>Navigate to workspace folder</p>
+        <div class="ml-md-3 col-12 p-0">
+            <p> Open the command prompt in administrator mode and go to the workspace location.</p>
+            <div class="font-weight-bold font-italic">
+                <p>C:\Windows\System32>D:</p>
+                <p>D:\>cd training</p>
+                <p>D:\training></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 row mx-0 my-2">
+        <p class="h5"><span class="font-weight-bold">Step 3 : </span>Create a new Angular project using Angular CLI</p>
+        <div class="ml-md-3 col-12 p-0">
+            <p>create a new angular project by executing the below command in cmd prompt.</p>
+            <p><span class="font-weight-bold">Syntax : </span> ng new project-name</p>
+            <div class="font-weight-bold font-italic">
+                <p>D:\training>ng new angular-training</p>
+            </div>
+            <p>This will create a new project in the name of 'angular-training'</p>
+        </div>
+    </div>
+    <div class="col-12 row mx-0 my-2">
+        <p class="h5"><span class="font-weight-bold">Step 4 : </span>Choosing Routing and Style options</p>
+        <div class="ml-md-3 col-12 p-0">
+            <p>After executing the above command, it will ask two option.</p>
+            <p>The first option is about angular routing. If you want to use Routing in your project, 
+              then Type 'y' or 'yes'. All projects needed routing, so best practice to go with routing option.</p>
+            <p>The second option is about CSS file types. Select the first one ‘CSS’ and enter to proceed.
+              If you want to use mixin format, then go with either 'SCSS' or 'SASS' options.
+            </p>
+            <div class="font-weight-bold font-italic">
+                <p>? Would you like to add Angular routing? Yes</p>
+                <p>? Which stylesheet format would you like to use? CSS</p>
+            </div>
+            <p>After the choice chooses, it will complete the project creation. 
+              It will look like below screenshot
+            </p>
+            <div class="col-12 p-0 my-3">
+                <img src="assets/img/verify_project.png" alt="Node.js download" class="tut_img">
+            </div>
+        </div>
+    </div>
+    <div class="col-12 row mx-0 my-2">
+      <p class="h5"><span class="font-weight-bold">Step 5 : </span>Start the server to run Angular project</p>
+      <div class="ml-md-3 col-12 p-0">
+        <p>Go into the project folder to start the server.</p>
+        <p class="font-weight-bold font-italic">D:\training>cd angular-training</p>
+        <p>Now start the server using the below command.</p>
+        <p class="font-weight-bold font-italic">D:\training\angular-training>ng serve –o</p>
+        <p>After this command execution, it will open the website in browser in default
+          port 4200. You can directly open the site by entering the below url in browser.</p>
+        <p class="font-weight-bold font-italic">http://localhost:4200</p>
+        <p>The webpage will be look like below</p>
+        <div class="col-12 p-0 my-3">
+            <img src="assets/img/project_browser.png" alt="Node.js download" class="tut_img">
+        </div>
+        <p>If you want to run the project in different port number, then use the below command.</p>
+        <p class="font-weight-bold font-italic">ng serve --port=5600</p>
+        <p>This command will start the server in port number 5600.</p>
+      </div>
+    </div>
+    <div class="col-12 row mx-0 my-2">
+      <p class="h5"><span class="font-weight-bold">Step 6 : </span>Open the angular code in Visual studio code.</p>
+      <div class="ml-md-3 col-12 p-0">
+        <p>Open the visual studio code and navigate to File menu.</p>
+        <p>File -> Open Folder -> Select the folder name of angular-training from ‘D:’ drive.</p>
+        <p>After select the project folder, it will open the code in Visual Studi Code Editor.</p>
+        <div class="col-12 p-0 my-3">
+            <img src="assets/img/visual_editor.png" alt="Node.js download" class="tut_img">
+        </div>
+        <p>Your first angular project has been created and hosted locally.</p>
+      </div>
+    </div>
+    <div class="col-12 row mx-0 my-2">
+        <h4 class="col-12 text-center font-weight-bold font-italic">Happy Coding!!!</h4>
+    </div>
+    <app-prev-next-article [url]='currentUrl' class="col-12 p-0"></app-prev-next-article>
+    <hr class="col-12">
+    <app-related-articles class="col-12 p-0" [url]='currentUrl'></app-related-articles>
+  </div>

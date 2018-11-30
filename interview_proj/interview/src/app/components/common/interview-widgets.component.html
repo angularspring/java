@@ -1,0 +1,8 @@
+<div class="col-12 row m-0" [ngClass]='align_cards'>
+    <div class="card border-light mb-3 m-2 col-12 col-md-3 shadow" *ngFor="let topic of searchTopics">
+        <div class="card-body">
+            <h4 class="card-title"><a [uiSref]="topic.url">{{topic.name}}</a></h4>
+            <p class="card-text">{{topic.description}}</p>
+        </div>
+    </div>
+</div>

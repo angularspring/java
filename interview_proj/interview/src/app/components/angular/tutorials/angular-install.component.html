@@ -1,0 +1,79 @@
+<div class="container mb-3">
+  <h2 class="text-center col-12 my-3">Angular Pre-requisites Installation</h2>
+  <app-prev-next-article [url]='currentUrl' class="col-12 p-0"></app-prev-next-article>
+  <div class="col-12 row m-0">
+    <div class="col-12 my-2">
+      <p class="h5"><span class="font-weight-bold">Step 1 : </span>Download the Node.js software from the below link</p>
+      <div class="ml-md-3">
+        <a href="https://nodejs.org/en/" target="_blank">Click here to download</a>
+        <div class="col-12 p-0 mt-3">
+          <img src="assets/img/nodejsdownload.png" alt="Node.js download" class="tut_img">
+        </div>
+      </div>
+    </div>
+    <div class="col-12 my-2">
+      <p class="h5"><span class="font-weight-bold">Step 2 : </span>Install the Node.js software</p>
+      <div class="ml-md-3">
+          <p>Node.js is an open-source, cross-platform JavaScript run-time environment that executes JavaScript code outside of a browser.</p>
+      </div>
+    </div>
+    <div class="col-12 my-2">
+        <p class="h5"><span class="font-weight-bold">Step 3 : </span>Verify the Node.js and NPM installation</p>
+        <div class="ml-md-3">
+          <p>Go to command prompt and type the below commands to verify the installation.</p>
+          <div class="font-weight-bold font-italic">
+            <p>C:\Windows\System32>node -v</p>
+            <p>v10.13.0</p>
+            <p>C:\Windows\System32>npm -v</p>
+            <p>6.4.1</p>
+          </div>
+          <p>NPM (Node Package Manager) is a package manager for the JavaScript programming language. It is the default package manager for the JavaScript runtime environment Node.js</p>
+          <p class="text-muted"><span class="font-weight-bold">Note: </span>The version number may change for newer Node.js</p>
+          <img class="tut_img mt-2 mb-3" src="assets/img/verify_nodejs.png" alt="Verify the Node.js installation"/>
+      </div>
+    </div>
+    <div class="col-12 my-2">
+        <p class="h5"><span class="font-weight-bold">Step 4 : </span>Download Visual Studio Code</p>
+        <div class="ml-md-3">
+          <p>Use the below link to download the visual studio code. This is the editor for angular</p>
+          <p><a href="https://code.visualstudio.com/" target="_blank">Click here to download</a></p>
+          <img class="tut_img mt-2 mb-3" src="assets/img/visual_install.png" alt="Download visual studio"/>
+        </div>
+    </div>
+    <div class="col-12 my-2">
+        <p class="h5"><span class="font-weight-bold">Step 5 : </span>Install and Verify the Visual Studio Code Editor</p>
+    </div>
+    <div class="col-12 my-2">
+        <p class="h5"><span class="font-weight-bold">Step 6 : </span>Install Angular CLI (Command Line Interface)</p>
+        <div class="ml-md-3">
+          <p>By using NPM (Node Package Manager), Angular CLI can be install.</p>
+          <p>Open the command prompt in administrator mode and run the below command to install the latest Angular CLI.</p>
+          <div class="font-weight-bold font-italic">
+              <p>C:\Windows\System32>npm i @angular/cli –g</p>
+          </div>
+          <p class="text-muted"><span class="font-weight-bold">Note : </span>Don't forgot to add when you want to use the CLI anywhere in system. 
+            Otherwise it will install the Angular CLI in the mentioned path only.</p>
+          <img class="tut_img mt-2 mb-3" src="assets/img/install_cli.png" alt="Angular CLI Installation"/>
+          <p>After installation command executed, it will install the package globally and output in command prompt will look like below</p>
+          <img class="tut_img mt-2 mb-3" src="assets/img/after_cli_install.png" alt="Angular CLI Installation"/>
+        </div>
+    </div>
+    <div class="col-12 my-2">
+        <p class="h5"><span class="font-weight-bold">Step 7 : </span>Verify the installation of Angular CLI</p>
+        <div class="ml-md-3">
+          <p>Execute the below command in Command prompt.</p>
+          <div class="font-weight-bold font-italic">
+            <p>C:\Windows\System32>ng v</p>
+          </div>
+          <img class="tut_img mt-2 mb-3" src="assets/img/verify_cli.png" alt="Angular CLI Installation"/>
+          <p>Angular setup has been completed. Now you can create new angular project and explore the coding.</p>
+        </div>
+    </div>
+    <div class="col-12 my-2">
+      <h4 class="text-center font-weight-bold font-italic">Happy Coding!!!</h4>
+    </div>
+  </div>
+  <app-prev-next-article [url]='currentUrl' class="col-12 p-0"></app-prev-next-article>
+  <hr class="col-12">
+  <app-related-articles class="col-12 p-0" [url]='currentUrl'></app-related-articles>
+</div>

@@ -1,0 +1,17 @@
+<div class="col-12 text-center mt-3">
+    <h3>Search Results of : {{searchWord}}</h3>
+</div>
+<div class="col-12 p-0" *ngIf="searchTopics.length>0">
+    <div class="col-12 text-center mt-3">
+        <h4>Interview Questions</h4>
+    </div>
+    <app-interview-widgets [topics]='searchTopics' class="col-12 p-0"></app-interview-widgets>
+    <hr class="col-10" />
+    <div class="col-12 text-center mt-3">
+        <h4>Tutorials</h4>
+    </div>
+    <app-tutorial-widgets [tutorials]="searchTutorials"></app-tutorial-widgets>
+</div>
+<div class="col-12 text-center text-danger" *ngIf="searchTopics.length==0">
+    <h4>No Results Found!!</h4>
+</div>

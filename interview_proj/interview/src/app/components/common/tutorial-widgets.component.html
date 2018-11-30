@@ -1,0 +1,8 @@
+<div class="col-12 row m-0" [ngClass]="align_cards">
+    <div class="card border-light mb-3 m-2 col-12 col-md-3 shadow" *ngFor="let tutorial of searchTutorials">
+        <div class="card-body">
+            <h4 class="card-title"><a [uiSref]="tutorial.url">{{tutorial.name}}</a></h4>
+            <p class="card-text">{{tutorial.description}}</p>
+        </div>
+    </div>
+</div>
