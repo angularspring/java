@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TransitionService } from '@uirouter/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'interview';
+  title = 'interview';  
+  constructor(private trans:TransitionService){
+    this.trans.onSuccess({},function(){
+      window.scroll(0,0);
+    });
+  }
 }

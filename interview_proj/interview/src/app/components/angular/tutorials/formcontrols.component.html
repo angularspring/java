@@ -1,0 +1,39 @@
+<div class="container mb-3">
+    <h2 class="text-center col-12 my-3">Adding Form Controls and Validation</h2>
+    <app-prev-next-article [url]='currentUrl' class="col-12 p-0"></app-prev-next-article>
+    <div class="col-12 row my-2 mx-0">
+      <p class="h5"><span class="font-weight-bold">Step 1 : </span>Importing Form Module</p>
+      <div class="ml-md-3 col-12 p-0">
+        <p>Import FormsModule into root module of our project. Always root module will be <span class="font-italic">app.module.ts</span></p>
+        <p>app.module.ts:</p>
+        <div class="code_box">
+          <pre>
+....
+import {{'{'}} FormsModule } from '@angular/forms';
+....
+@NgModule({{'{'}}
+  imports:[
+    ....
+    FormsModule
+  ],
+  .....
+})
+export class AppModule {{'{'}}}
+          </pre>
+        </div>
+        <p>FormsModule will enable the <span class="font-italic">ngModel</span> directive to our project to achive the two way binding. FormsModule will provide all forms related directives and validations.</p>
+      </div>
+    </div>
+    <div class="col-12 row mx-0 my-2">
+      <p class="h5"><span class="font-weight-bold">Step 2 : </span>Use ngModel in Input Controls</p>
+      <div class="ml-md-3 col-12 p-0">
+
+      </div>
+    </div>
+    <div class="col-12 row mx-0 my-2">
+        <h4 class="col-12 text-center font-weight-bold font-italic">Happy Coding!!!</h4>
+    </div>
+    <app-prev-next-article [url]='currentUrl' class="col-12 p-0"></app-prev-next-article>
+    <hr class="col-12">
+    <app-related-articles class="col-12 p-0" [url]='currentUrl'></app-related-articles>
+  </div>

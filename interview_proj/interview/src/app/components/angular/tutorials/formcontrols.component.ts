@@ -2,12 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { StateService } from '@uirouter/core';
 
 @Component({
-  selector: 'app-add-bootstap-to-angular',
-  templateUrl: './add-bootstap-to-angular.component.html',
+  selector: 'app-formcontrols',
+  templateUrl: './formcontrols.component.html',
   styles: []
 })
-export class AddBootstapToAngularComponent implements OnInit {
-
+export class FormcontrolsComponent implements OnInit {
   currentUrl:string;
 
   constructor(private state:StateService) { }

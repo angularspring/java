@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { StateService } from '@uirouter/core';
 
 @Component({
-  selector: 'app-add-bootstap-to-angular',
-  templateUrl: './add-bootstap-to-angular.component.html',
+  selector: 'app-adding-ui-router',
+  templateUrl: './adding-ui-router.component.html',
   styles: []
 })
-export class AddBootstapToAngularComponent implements OnInit {
+export class AddingUiRouterComponent implements OnInit {
 
   currentUrl:string;
 

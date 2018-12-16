@@ -22,3 +22,18 @@ a {
 .text-indent-3{
     text-indent: 2rem;
 }
+.code_box{
+    font-family: Menlo,Monaco,"Courier New",Courier,monospace;
+    padding: 15px;
+    background: #eee;
+    margin-bottom: 15px;
+}
+.code_box>p:last-child {
+    margin-bottom: 0px;
+}
+pre{
+    margin-bottom:0px !important;
+}
+p {
+    text-align: justify;
+}

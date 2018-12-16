@@ -10,7 +10,9 @@ export class TutorialWidgetsComponent implements OnInit {
   @Input('tutorials') searchTutorials;
   @Input() align_cards;
 
-  constructor() { }
+  constructor() { 
+    
+  }
 
   ngOnInit() {
     if(!this.align_cards){

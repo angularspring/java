@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RootModule, UIRouterModule, Transition } from '@uirouter/angular';
+import { RootModule, UIRouterModule } from '@uirouter/angular';
 import { CorejavaComponent } from './components/corejava/corejava.component';
 import { HomeComponent } from './components/home/home.component';
 import { AngularComponent } from './components/angular/angular.component';
@@ -9,6 +9,10 @@ import { AngularTutorialComponent } from './components/angular/angular-tutorial.
 import { AngularInstallComponent } from './components/angular/tutorials/angular-install.component';
 import { AngularProjCreateComponent } from './components/angular/tutorials/angular-proj-create.component';
 import { AddBootstapToAngularComponent } from './components/angular/tutorials/add-bootstap-to-angular.component';
+import { AngularMaterialComponent } from './components/angular/angular-material.component';
+import { AddingUiRouterComponent } from './components/angular/tutorials/adding-ui-router.component';
+import { FormcontrolsComponent } from './components/angular/tutorials/formcontrols.component';
+import { IocComponent } from './components/spring/ioc.component';
 
 const rootModule: RootModule = {
   states: [{
@@ -30,6 +34,11 @@ const rootModule: RootModule = {
     name:'spring',
     url:'/spring',
     component:SpringComponent
+  },
+  {
+    name:'springCore',
+    url:'/spring_ioc',
+    component:IocComponent
   },
   {
     name:'search',
@@ -55,6 +64,21 @@ const rootModule: RootModule = {
     name:'addBootstrapToAngular',
     url:'/add_bootstrap_to_angular7',
     component:AddBootstapToAngularComponent
+  },
+  {
+    name:'angularMaterial',
+    url:'/angular_material',
+    component:AngularMaterialComponent
+  },
+  {
+    name:'addingUiRouter',
+    url:'/adding_ui_router_to_angular',
+    component:AddingUiRouterComponent
+  },
+  {
+    name:'formControls',
+    url:'/adding_form_controls_angular',
+    component:FormcontrolsComponent
   }
   ],
   otherwise:"/"

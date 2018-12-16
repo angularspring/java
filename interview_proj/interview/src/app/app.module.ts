@@ -18,6 +18,10 @@ import { InterviewWidgetsComponent } from './components/common/interview-widgets
 import { RelatedArticlesComponent } from './components/common/related-articles.component';
 import { PrevNextArticleComponent } from './components/common/prev-next-article.component';
 import { AddBootstapToAngularComponent } from './components/angular/tutorials/add-bootstap-to-angular.component';
+import { AngularMaterialComponent } from './components/angular/angular-material.component';
+import { AddingUiRouterComponent } from './components/angular/tutorials/adding-ui-router.component';
+import { FormcontrolsComponent } from './components/angular/tutorials/formcontrols.component';
+import { IocComponent } from './components/spring/ioc.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +39,11 @@ import { AddBootstapToAngularComponent } from './components/angular/tutorials/ad
     InterviewWidgetsComponent,
     RelatedArticlesComponent,
     PrevNextArticleComponent,
-    AddBootstapToAngularComponent
+    AddBootstapToAngularComponent,
+    AngularMaterialComponent,
+    AddingUiRouterComponent,
+    FormcontrolsComponent,
+    IocComponent
   ],
   imports: [
     BrowserModule,

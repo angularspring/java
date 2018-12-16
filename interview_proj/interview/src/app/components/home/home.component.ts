@@ -9,7 +9,8 @@ import { topics } from './../../conf/topics';
 export class HomeComponent implements OnInit {
 
   hometopics:any=[];
-  constructor() { }
+  constructor() {
+   }
 
   ngOnInit() {
     this.hometopics=topics;

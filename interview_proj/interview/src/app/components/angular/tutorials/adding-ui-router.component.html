@@ -1,0 +1,190 @@
+<div class="container mb-3">
+    <h2 class="text-center col-12 my-3">Adding UI Router to Angular 7</h2>
+    <app-prev-next-article [url]='currentUrl' class="col-12 p-0"></app-prev-next-article>
+    <div class="col-12 row my-3 mx-0">
+      <p class="text-indent-3">Let’s build a Hello World UI-Router application for Angular (2+). 
+        It will have two “pages” (hello and about), each one having its own URL. 
+        We can switch between pages by clicking on links. The link for the active page will be highlighted.
+      </p>
+    </div>
+    <div class="col-12 row mx-0 my-2">
+        <p class="h5"><span class="font-weight-bold">Step 1 : </span>Create a project with routing</p>
+        <div class="ml-md-3 col-12 p-0">
+           <p>If you haven’t installed Angular CLI, install it:</p>
+           <p class="code_box">npm install -g @angular/cli</p>
+           <p>First step is to generate a new project:</p>
+           <p class="code_box">ng new HelloWorld --routing</p>
+           <p>The <span class="font-italic">--routing</span> parameter will create a separate module for routing called <span class="font-italic">app-routing.module</span>.</p>
+        </div>
+    </div>
+    <div class="col-12 row mx-0 my-2">
+        <p class="h5"><span class="font-weight-bold">Step 2 : </span>Installing UI Router</p>
+        <div class="ml-md-3 col-12 p-0">
+          <p>Use the below code to install Angular UI Router</p>
+          <p class="code_box">npm install @uirouter/angular</p>
+          <p>Now we need to repurpose <span class="font-italic">app-routing.module.ts</span> in /src/app from using Angular Router to using UI-Router. Originally it will look like this:</p>
+          <div class="code_box">
+            <pre>
+import {{'{'}} NgModule } from '@angular/core';
+import {{'{'}} Routes, RouterModule } from '@angular/router';
+                
+const routes: Routes = [];
+                
+@NgModule({{'{'}}
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule {{'{'}} }
+            </pre>
+          </div>
+          <p>Change it into:</p>
+          <div class="code_box">
+            <pre>
+import {{'{'}} NgModule } from '@angular/core';
+import {{'{'}} RootModule, UIRouterModule } from '@uirouter/angular';
+                
+const rootModule: RootModule = {{'{'}}
+    states: [],
+    useHash: true
+};
+                
+@NgModule({{'{'}}
+    imports: [UIRouterModule.forRoot(rootModule)],
+    exports: [UIRouterModule]
+})
+export class AppRoutingModule {{'{'}} }
+            </pre>
+          </div>
+          <p>Later you will add UI-Router state definitions in the states: [] array.</p>
+          <p>Next step is to modify the <span class="font-italic">app.component.html</span> in /src/app, change:</p>
+          <p class="code_box">&lt;router-outlet&gt;&lt;/router-outlet&gt;</p>
+          <p>into:</p>
+          <p class="code_box">&lt;ui-view&gt;&lt;/ui-view&gt;</p>
+          <p>Now the project is converted to use UI-Router.</p>
+        </div>
+    </div>
+    <div class="col-12 row mx-0 my-2">
+        <p class="h5"><span class="font-weight-bold">Step 3 : </span>Adding First State</p>
+        <div class="ml-md-3 col-12 p-0">
+            <p>You are ready to create your first state definition. First create a component called HelloComponent</p>
+            <p class="code_box">ng generate component Hello</p>
+            <p>Then add a route definition in <span class="font-italic">app-routing.module.ts</span>:</p>
+            <div class="code_box">
+              <pre>
+...
+const rootModule: RootModule = {{'{'}}
+    states: [
+        {{'{'}}
+          name: "hello",
+          url: "/hello",
+          component: HelloComponent
+        }
+    ],
+  ...
+              </pre>
+            </div>
+            <p>Don’t forget to add reference at the top:</p>
+            <p class="code_box">import {{'{'}} HelloComponent } from './hello/hello.component';</p>
+            <p>A state is the basic building block for UI-Router applications. This javascript object is a simple state definition.</p>
+            <div class="code_box">
+              <pre>
+{{'{'}}
+  name: "hello",
+  url: "/hello",
+  component: HelloComponent
+}
+              </pre>
+            </div>
+            <p>This simple state definition has three properties:</p>
+            <p><span class="font-italic">name:</span> The state is named hello.</p>
+            <p><span class="font-italic">url:</span> When the state is active, the browser’s url will be <span class="font-italic">/hello</span>.</p>
+            <p><span class="font-italic">component:</span> property value is the Angular (2+) component class that will be loaded into the viewport when the state is active. In this case, we will load the HelloComponent.</p>
+            <p>Now if you run the dev server:</p>
+            <p class="code_box">ng serve</p>
+            <p>And navigate to <span class="font-italic">http://localhost:4200</span>, it will redirect to <span class="font-italic">http://localhost:4200/#/</span> but the page will be blank. That’s because there is no component to show at #/.</p>
+            <p>Try to open <span class="font-italic">http://localhost:4200/#/hello</span>, you will see hello works!. That’s the content of the <span class="font-italic">hello.component.html</span> which you have linked to the URL <span class="font-italic">#/hello</span> in the router. UI-Router puts the content of <span class="font-italic">hello.component.html</span> into the <span class="font-italic">&lt;ui-view&gt;</span> tag in <span class="font-italic">app.component.html</span>.</p>
+        </div>
+    </div>
+    <div class="col-12 row mx-0 my-2">
+        <p class="h5"><span class="font-weight-bold">Step 4 : </span>Adding About State</p>
+        <div class="ml-md-3 col-12 p-0">
+            <p>Add another component called about:</p>
+            <p class="code_box">ng generate component About</p>
+            <p>Add state definition:</p>
+            <div class="code_box">
+              <pre>
+...
+import {{'{'}} AboutComponent } from './about/about.component';
+...
+    states: [
+        {{'{'}}
+          name: "about",
+          url: "/about",
+          component: AboutComponent
+        }
+    ],
+  ...
+              </pre>
+            </div>
+            <p>And when you go to <span class="font-italic">http://localhost:4200/#/about</span>, you will see about works!, which is the content of <span class="font-italic">about.component.html</span>.</p>
+        </div>
+    </div>
+    <div class="col-12 row mx-0 my-2">
+        <p class="h5"><span class="font-weight-bold">Step 5 : </span>Adding Links to States</p>
+        <div class="ml-md-3 col-12 p-0">
+          <p>Now modify <span class="font-italic">app.component.html</span>, add:</p>
+          <div class="code_box">
+            <pre>
+&lt;a uiSref="hello" uiSrefActive="active"&gt;Hello&lt;/a&gt;
+&lt;a uiSref="about" uiSrefActive="active"&gt;About&lt;/a&gt;</pre>
+          </div>
+          <p>The <span class="font-italic">uiSref</span> directives are links, similar to an anchor tag’s href. Instead of linking to a URL like an href, a uiSref links to a state.</p>
+          <p>When clicked, the linked state is activated. The uiSref directive automatically builds a href attribute for you (&lt;a href=...&gt;&lt;/a&gt;) based on your state’s url.</p>
+          <p>The uiSref links also have <span class="font-italic">uiSrefActive='active'</span>, which is another directive. The addition of <span class="font-italic">uiSrefActive='active'</span> adds the active css class to the link when the target state is active.</p>
+          <p>Now you can switch back and forth between the two states by clicking the Hello and About links.</p>
+          <p>At any time, the user can refresh the browser, and the application will restart at the same URL. The URL contains the information necessary to restore the application’s state. When the application is restarted, it will be in the same state as before.</p>
+        </div>
+    </div>
+    <div class="col-12 row mx-0 my-2">
+      <p class="h5"><span class="font-weight-bold">Step 5 : </span>Go to state from component</p>
+      <div class="ml-md-3 col-12 p-0">
+        <p>Now modify <span class="font-italic">app.component.html</span>, add:</p>
+        <div class="code_box">
+            <pre>
+&lt;button (click)="gotoAbout()"&gt;Go To About&lt;/button&gt;</pre>
+        </div>
+        <p><span class="font-italic">click</span> directive call <span class="font-italic">gotoAbout()</span> function in <span class="font-italic">app.component.ts</span></p>
+        <p>app.component.ts:</p>
+        <div class="code_box">
+          <pre>
+....
+import {{'{'}} StateService } from '@uirouter/angular';
+.....
+constructor(private state:StateService){{'{'}}}
+.....
+gotoAbout() {{'{'}}
+  this.state.go('about')
+}
+          </pre>
+        </div>
+        <p>We have consumed <span class="font-italic">StateService</span> from <span class="font-italic">'@uirouter/angular'</span>. This will provide the functionalities related to uirouter.</p>
+        <p>Now, go to browser click the 'Go To About' button, it will redirect to about page.</p>
+        <p>StateService is not only for redirection purpose. This will provide lot of functionalities like current state, url, name and so on. For more details, please refer the link in the bottom.</p>
+      </div>
+    </div>
+    <div class="col-12 row mx-0 my-2">
+        <p class="h5"><span class="font-weight-bold">Step 6 : </span>Completed</p>
+        <div class="ml-md-3 col-12 p-0">
+          <p>That’s it, we have done the basic routing with UI Router.</p>
+          <p>For more documents, refer these links</p>
+          <p><a href="https://ui-router.github.io/guide/" target="_blank">Guide</a></p>
+          <p><a href="https://ui-router.github.io/ng2/docs/latest/" target="_blank">API Documentation</a></p>
+        </div>
+    </div>
+    <div class="col-12 row mx-0 my-2">
+        <h4 class="col-12 text-center font-weight-bold font-italic">Happy Coding!!!</h4>
+    </div>
+    <app-prev-next-article [url]='currentUrl' class="col-12 p-0"></app-prev-next-article>
+    <hr class="col-12">
+    <app-related-articles class="col-12 p-0" [url]='currentUrl'></app-related-articles>
+  </div>

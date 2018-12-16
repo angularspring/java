@@ -13,6 +13,7 @@ export class HeaderComponent implements OnInit {
   constructor(private state:StateService) { }
 
   ngOnInit() {
+  
   }
 
   search(){

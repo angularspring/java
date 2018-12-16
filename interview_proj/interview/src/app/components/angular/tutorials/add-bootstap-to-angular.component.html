@@ -1,3 +1,124 @@
-<p>
-  add-bootstap-to-angular works!
-</p>
+<div class="container mb-3">
+    <h2 class="text-center col-12 my-3">Adding bootstrap to Angular 7</h2>
+    <app-prev-next-article [url]='currentUrl' class="col-12 p-0"></app-prev-next-article>
+    <div class="col-12 row my-3 mx-0">
+      <p class="text-indent-3">We have seen angular setup and project creation in previous tutorial.
+        The next step is to add botstrap in angular project and use it in efficient way. Hope, you have already installed and created a new project. So, we are skipping those parts to make
+        this tutorial simple.
+      </p>
+    </div>
+    <div class="col-12 row mx-0 my-2">
+        <p class="h5"><span class="font-weight-bold">Step 1 : </span>Install Bootstrap and FontAwesome</p>
+        <div class="ml-md-3 col-12 p-0">
+            <p>We will use <span class="font-italic">npm</span> to install the dependencies:</p>
+            <p class="code_box">npm install bootstrap font-awesome</p>
+            <p>Now that the dependencies are installed we need to load these dependencies to our project.</p>
+        </div>
+    </div>
+    <div class="col-12 row mx-0 my-2">
+        <p class="h5"><span class="font-weight-bold">Step 2 : </span>Load CSS dependencies to our project</p>
+        <div class="ml-md-3 col-12 p-0">
+            <p>To load Bootstrap CSS dependencies to our project, we have to mention the dependencies name in angular.json file.</p>
+            <p>We have to add bootstrap.min.css and font-awesome.min.css in to 'styles' section in angular.json.</p>
+            <p>angular.json</p>
+            <div class="code_box">
+              <p>"styles": [<br>
+                  <span class="ml-5"></span>"src/styles.css",<br>
+                  <span class="ml-5"></span>"node_modules/bootstrap/dist/css/bootstrap.min.css",<br>
+                  <span class="ml-5"></span>"node_modules/font-awesome/css/font-awesome.min.css"<br>
+                ],</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 row mx-0 my-2">
+        <p class="h5"><span class="font-weight-bold">Step 3 : </span>Load JS dependencies to our project</p>
+        <div class="ml-md-3 col-12 p-0">
+            <p>To use full feature of bootstrap we need to add JS dependencies also.</p>
+            <p>To load Bootstrap JS dependencies to our project, we have to mention the dependencies name in angular.json file.</p>
+            <p>We have to add bootstrap.bundle.min.js in to 'scripts' section in angular.json. bootstrap.bundle.min.js is a combination of bootstrap.js and popper.js.</p>
+            <p>Bootstrap JS is depending on Jquery. So, we need to add jquery dependency first.</p>
+            <p>Using npm we can install jquery to our project.</p>
+            <p class="code_box">npm install jquery</p>
+            <p>Now, we have to add both jquery and bootstrap.bundle.min.js files in angular.json.</p>
+            <p>angular.json</p>
+            <div class="code_box">
+              <p>"scripts": [<br>
+                <span class="ml-5"></span> "node_modules/jquery/dist/jquery.min.js",<br>
+                <span class="ml-5"></span>"node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"<br>
+                ],</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 row mx-0 my-2">
+        <p class="h5"><span class="font-weight-bold">Step 4 : </span>Verify the installation of bootstrap</p>
+        <div class="ml-md-3 col-12 p-0">
+          <p>After adding bootstrap to angular.json file, stop the server and start again with <span class="font-italic">ng serve</span> command. </p>
+          <p class="text-muted"><span class="font-weight-bold">Note : </span>Whenever you are doing changes in angular.json file, please stop and start server to see the changes.</p>
+          <p>Before applying bootstrap, home page will look like this.</p>
+          <div class="col-12 p-0 my-3">
+              <img src="assets/img/before_bootstrap.png" alt="Node.js download" class="tut_img">
+          </div>
+          <p>After started the server, the home page will look like this. You can able to indentify the font related changes happened.</p>
+          <div class="col-12 p-0 my-3">
+              <img src="assets/img/after_bootstrap.png" alt="Node.js download" class="tut_img">
+          </div>
+        </div>
+    </div>
+    <div class="col-12 row mx-0 my-2">
+        <p class="h5"><span class="font-weight-bold">Step 5 : </span>Use Bootstrap and Font Awesome in project</p>
+        <div class="ml-md-3 col-12 p-0">
+          <p>Use the Below code to create menu using bootstrap</p>
+          <pre class="code_box">
+&lt;nav class="navbar navbar-expand-lg navbar-dark bg-primary"&gt;
+  &lt;a class="navbar-brand" href="#"&gt;Navbar&lt;/a&gt;
+  &lt;button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" 
+    aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation"&gt;
+    &lt;span class="navbar-toggler-icon"&gt;&lt;/span&gt;
+  &lt;/button&gt;
+                
+  &lt;div class="collapse navbar-collapse" id="navbarColor01"&gt;
+    &lt;ul class="navbar-nav mr-auto"&gt;
+      &lt;li class="nav-item active"&gt;
+        &lt;a class&="nav-link" href="#"&gt;Home &lt;span class="sr-only"&gt;(current)&lt;/span&gt;&lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li class="nav-item"&gt;
+        &lt;a class="nav-link" href="#"&gt;Features&lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li class="nav-item"&gt;
+        &lt;a class="nav-link" href="#"&gt;Pricing&lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li class="nav-item"&gt;
+        &lt;a class="nav-link" href="#"&gt;About&lt;/a&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;form class="form-inline my-2 my-lg-0"&gt;
+      &lt;input class="form-control mr-sm-2" type="text" placeholder="Search"&gt;
+      &lt;button class="btn btn-secondary my-2 my-sm-0" type="submit"&gt;Search&lt;/button&gt;
+    &lt;/form&gt;
+   &lt;/div&gt;
+&lt;/nav&gt;
+&lt;router-outlet&gt;&lt;/router-outlet&gt;</pre>
+            <p>Copy the above code and replace in <span class="font-italic">app.component.html</span></p>
+            <p>Afer place the above code home page will look like below</p>
+            <div class="col-12 p-0 my-3">
+                <img src="assets/img/bootstrap_menu.png" alt="Node.js download" class="tut_img">
+            </div>
+            <p>Now, copy the below code and place it after <span class="font-italic">&lt;router-outlet&gt;&lt;/router-outlet&gt;</span> to test Font Awesome icons.</p>
+            <pre class="code_box">
+&lt;span class="fa fa-user"&gt;&lt;/span&gt;
+&lt;span class="fa fa-lock"&gt;&lt;/span&gt;
+            </pre>
+            <p>Afer placed the above code, you can see user and lock icons in home page.</p>
+            <div class="col-12 p-0 my-3">
+                <img src="assets/img/fontawe_icons.png" alt="Node.js download" class="tut_img">
+            </div>
+            <p>You have sucessfully added bootstrap and font-awesome icons to your project. Go ahead and start your designs!!</p>
+        </div>
+    </div>
+    <div class="col-12 row mx-0 my-2">
+        <h4 class="col-12 text-center font-weight-bold font-italic">Happy Coding!!!</h4>
+    </div>
+    <app-prev-next-article [url]='currentUrl' class="col-12 p-0"></app-prev-next-article>
+    <hr class="col-12">
+    <app-related-articles class="col-12 p-0" [url]='currentUrl'></app-related-articles>
+  </div>
