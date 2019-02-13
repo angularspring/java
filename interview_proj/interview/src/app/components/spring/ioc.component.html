@@ -44,7 +44,7 @@
     <div class="row col-12 my-3">
         <h5 class="font-weight-bold">4. How we does implement DI in Spring Framework?</h5>
         <p class="text-indent-3">
-            We can use Spring XML based as well as Annotation based configuration to implement DI in spring applications. For better understanding
+            We can use Spring XML based as well as Annotation based configuration to implement DI in spring applications.
         </p>
     </div>
     <div class="row col-12 my-3">
@@ -83,7 +83,7 @@
     <div class="row col-12 my-3">
         <h5 class="font-weight-bold">8. What is a Spring Bean?</h5>
         <p class="text-indent-3">
-            Any normal java class that is initialized by Spring IoC container is called Spring Bean. We use Spring ApplicationContext to get the Spring Bean instance.Spring IoC container manages the life cycle of Spring Bean, bean scopes and injecting any required dependencies in the bean.
+            Any normal java class that is initialized by Spring IoC container is called Spring Bean. We use Spring ApplicationContext to get the Spring Bean instance. Spring IoC container manages the life cycle of Spring Bean, bean scopes and injecting any required dependencies in the bean.
         </p>
     </div>
     <div class="row col-12 my-3">
@@ -233,6 +233,217 @@ public class MyConfiguration {{'{'}}
             </li>
           </ul>
         </div>
+    </div>
+    <div class="row col-12 my-3">
+        <h5 class="font-weight-bold w-100">18. Explain Bean lifecycle in Spring framework?</h5>
+        <p class="text-indent-3">
+            Following is sequence of a bean lifecycle in Spring:
+        </p>
+        <p class="text-indent-3">
+            <span class="font-weight-bold">Instantiate: </span> First the spring container finds the bean’s definition from the XML file and instantiates the bean.
+        </p>
+        <p class="text-indent-3">
+            <span class="font-weight-bold">Populate properties: </span> Using the dependency injection, spring populates all of the properties as specified in the bean definition.
+        </p>
+        <p class="text-indent-3">
+            <span class="font-weight-bold">Set Bean Name: </span> If the bean implements BeanNameAware interface, spring passes the bean’s id to setBeanName() method.
+        </p>
+        <p class="text-indent-3">
+            <span class="font-weight-bold">Set Bean factory: </span> If Bean implements BeanFactoryAware interface, spring passes the beanfactory to setBeanFactory() method.
+        </p>
+        <p class="text-indent-3">
+            <span class="font-weight-bold">Pre Initialization: </span> Also called post process of bean. If there are any bean BeanPostProcessors associated with the bean, Spring calls postProcesserBeforeInitialization() method.
+        </p>
+        <p class="text-indent-3">
+            <span class="font-weight-bold">Initialize beans: </span> If the bean implements IntializingBean,its afterPropertySet() method is called. If the bean has init method declaration, the specified initialization method is called.
+        </p>
+        <p class="text-indent-3">
+            <span class="font-weight-bold">Post Initialization: </span> If there are any BeanPostProcessors associated with the bean, their postProcessAfterInitialization() methods will be called.
+        </p>
+        <p class="text-indent-3 w-100">
+            <span class="font-weight-bold">Ready to use: </span> Now the bean is ready to use by the application
+        </p>
+        <p class="text-indent-3 w-100">
+            <span class="font-weight-bold">Destroy: </span> If the bean implements DisposableBean , it will call the destroy() method
+        </p>
+
+    </div>
+    <div class="row col-12 my-3">
+        <h5 class="font-weight-bold">19. default-init-method what will do?</h5>
+        <p class="text-indent-3">
+            If we define default-init-method, it will try to execute that init method before each bean initialization. That init method need to define inside of each bean class, but not necessary.
+        </p>
+    </div>
+    <div class="row col-12 my-3">
+        <h5 class="font-weight-bold">20. afterPropertiesSet() from InitializingBean interface and init-method in xml, which will call first?</h5>
+        <p class="text-indent-3">
+            afterPropertiesSet() method will call first after that whatever we mentioned in init-method of that bean in context xml, that will execute. If we used interface and xml config in bean and init-method name same as afterPropertiesSet(). Then it will execute only once.
+        </p>
+    </div>
+    <div class="row col-12 my-3">
+        <h5 class="font-weight-bold w-100">21. destroy() from DisposableBean interface and destroy-method in xml, which will call first?</h5>
+        <p class="text-indent-3 w-100">
+                destroy() method will call first after that whatever we mentioned in destroy-method of that bean in context xml, that will execute. If we used interface and xml config in bean and destory-method name same as destroy(). Then it will execute only once.
+        </p>
+    </div>
+    <div class="row col-12 my-3">
+        <h5 class="font-weight-bold w-100">22. BeanPostProcessor and Ordered interface?</h5>
+        <p class="text-indent-3 w-100">
+                BeanPostProcessor is used to callback before bean initialization and after initialization of every bean. We have to implement BeanPostProcessor interface and the implemented class need to be define in xml. If we define the implemented class in xml, spring will automatically identify that as post process bean.
+        </p>
+        <p class="text-indent-3 w-100">
+                Ordered interface is used to order the one or more BeanPostProcessor in same context. It will implement getOrder() method to define the order.
+        </p>
+    </div>
+    <div class="row col-12 my-3">
+        <h5 class="font-weight-bold w-100">23. Can we use BeanPostProcessor implemented class as normal bean?</h5>
+        <p class="text-indent-3 w-100">
+                Yes, we can use as a normal bean class. But it is not recommended. As we are using only for post procees purpose. If we didn't define id or name for that bean, then we can't access through container.
+        </p>
+    </div>
+    <div class="row col-12 my-3">
+        <h5 class="font-weight-bold w-100">24. When index is required in constructor-ref or property?</h5>
+        <p class="text-indent-3 w-100">
+                If the constructor arguments are in same type or if we didn't define type then we have to go for that options.
+        </p>
+    </div>
+    <div class="row col-12 my-3">
+        <h5 class="font-weight-bold w-100">25. Can we declare inner beans?</h5>
+        <p class="text-indent-3 w-100">
+                Yes, we can define inner beans. Instead of defining ref arguments, we can define inner beans. But inner beans, we can't use it outside.
+        </p>
+    </div>
+    <div class="row col-12 my-3">
+        <h5 class="font-weight-bold w-100">26. Can we use inner beans outisde by using Context.getBeans()?</h5>
+        <p class="text-indent-3 w-100">
+                No, inner beans never called or used outisde.
+        </p>
+    </div>
+    <div class="row col-12 my-3">
+        <h5 class="font-weight-bold w-100">27. What are the ways to do Dependency Injection in spring?</h5>
+        <p class="text-indent-3 w-100">
+            1. Setter Based
+        </p>
+        <p class="text-indent-3 w-100">
+            2. Constructor Based
+        </p>
+    </div>
+    <div class="row col-12 my-3">
+        <h5 class="font-weight-bold w-100">28. What are the collections, we can use it in bean configuration?</h5>
+        <p class="text-indent-3 w-100">
+            1. List
+        </p>
+        <p class="text-indent-3 w-100">
+            2. Set
+        </p>
+        <p class="text-indent-3 w-100">
+            3. Map
+        </p>
+        <p class="text-indent-3 w-100">
+            4. Props
+        </p>
+    </div>
+    <div class="row col-12 my-3">
+        <h5 class="font-weight-bold w-100">29. What is value-type in list?</h5>
+        <p class="text-indent-3 w-100">
+                value-type defining the data type of elements or values inside the list
+        </p>
+    </div>
+    <div class="row col-12 my-3">
+        <h5 class="font-weight-bold w-100">30. How to create a linked list in Bean xml?</h5>
+        <p class="text-indent-3 w-100">
+                Using java.util.LinkedList, we can create a linked list and assign to the property, where we required.
+        </p>
+        <pre class="code_box w-100">
+&lt;bean id="linkedList" class="java.util.LinkedList"&gt;
+    &lt;constructor-arg&gt;
+        &lt;list&gt;
+            &lt;value&gt;India&lt;/value&gt;
+            &lt;value&gt;Sri Lanka&lt;/value&gt;
+            &lt;value&gt;Thailand&lt;/value&gt;
+        &lt;/list&gt;
+    &lt;/constructor-arg&gt;
+&lt;/bean&gt;
+        </pre>
+    </div>
+    <div class="row col-12 my-3">
+        <h5 class="font-weight-bold w-100">31. How to inject another bean inside list?</h5>
+        <p class="text-indent-3 w-100">
+                Using below code we can inject another bean reference to list. But, the list should accept all objects.
+        </p>
+        <pre class="code_box w-100">
+&lt;list&gt;
+    ..
+    &lt;ref bean="beanName"&gt;&lt;/ref&gt;
+&lt;/list&gt;
+        </pre>
+    </div>
+    <div class="row col-12 my-3">
+        <h5 class="font-weight-bold w-100">32. How to assign empty and null value in spring xml?</h5>
+        <p class="text-indent-3 w-100">
+                We can use "" to assign empty value and we can use &lt;null/&gt; to assign null value to any element. See the below example.
+        </p>
+        <p class="text-indent-3 w-100">
+                To assign Empty value:
+        </p>
+        <pre class="code_box w-100">
+&lt;bean id = "..." class = "exampleBean"&gt;
+    &lt;property name = "email" value = ""/&gt;
+&lt;/bean&gt;
+        </pre>
+        <p class="text-indent-3 w-100">
+                To assign Null value:
+        </p>
+        <pre class="code_box w-100">
+&lt;bean id = "..." class = "exampleBean"&gt;
+    &lt;property name = "email"&gt;&lt;null/&gt;&lt;/property&gt;
+&lt;/bean&gt;
+        </pre>
+    </div>
+    <div class="row col-12 my-3">
+        <h5 class="font-weight-bold w-100">33. Autowire types in spring xml?</h5>
+        <ul class="w-100">
+            <li>no</li>
+            <li>byName</li>
+            <li>byType</li>
+            <li>constructor</li>
+            <li>default</li>
+        </ul>
+    </div>
+    <div class="row col-12 my-3">
+        <h5 class="font-weight-bold w-100">34. Can we override autowiring?</h5>
+        <p class="text-indent-3 w-100">
+                Yes, by defining constructor or setter based, we can override the autowire.
+        </p>
+    </div>
+    <div class="row col-12 my-3">
+        <h5 class="font-weight-bold w-100">35. Can we autowire primitive data types?</h5>
+        <p class="text-indent-3 w-100">
+                No, primitive data types and strings, can't do autowire.
+        </p>
+    </div>
+    <div class="row col-12 my-3">
+        <h5 class="font-weight-bold w-100">36. How you create new instance, whenever the bean is calling?</h5>
+        <p class="text-indent-3 w-100">
+                We can set bean scope as prototype. Then it will create a new instance, whenever we are calling.
+                <br><span class="pl-5">XML => scope="prototype"</span>
+                <br><span class="pl-5">In Annoation => @Scope("prototype")</span>
+        </p>
+    </div>
+    <div class="row col-12 my-3">
+        <h5 class="font-weight-bold w-100">37. </h5>
+        <p class="text-indent-3 w-100">
+        </p>
+    </div>
+    <div class="row col-12 my-3">
+        <h5 class="font-weight-bold w-100">38. </h5>
+        <p class="text-indent-3 w-100">
+        </p>
+    </div>
+    <div class="row col-12 my-3">
+        <h5 class="font-weight-bold w-100"></h5>
+        <p class="text-indent-3 w-100">
+        </p>
     </div>
   </div>
 </div>
