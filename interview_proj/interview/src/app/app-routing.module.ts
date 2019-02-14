@@ -13,6 +13,7 @@ import { AngularMaterialComponent } from './components/angular/angular-material.
 import { AddingUiRouterComponent } from './components/angular/tutorials/adding-ui-router.component';
 import { FormcontrolsComponent } from './components/angular/tutorials/formcontrols.component';
 import { IocComponent } from './components/spring/ioc.component';
+import { AopComponent } from './components/spring/aop.component';
 
 const rootModule: RootModule = {
   states: [{
@@ -39,6 +40,11 @@ const rootModule: RootModule = {
     name:'springCore',
     url:'/spring_ioc',
     component:IocComponent
+  },
+  {
+    name:'springAOP',
+    url:'/spring_aop',
+    component:AopComponent
   },
   {
     name:'search',

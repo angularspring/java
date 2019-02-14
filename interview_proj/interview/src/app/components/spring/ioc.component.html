@@ -431,19 +431,126 @@ public class MyConfiguration {{'{'}}
         </p>
     </div>
     <div class="row col-12 my-3">
-        <h5 class="font-weight-bold w-100">37. </h5>
+        <h5 class="font-weight-bold w-100">37. What are the EventHandlers available in Spring Context?</h5>
+        <ul class="w-100">
+            <li>ContextRefreshedEvent</li>
+            <li>ContextStartedEvent</li>
+            <li>ContextStoppedEvent</li>
+            <li>ContextClosedEvent</li>
+            <li>RequestHandledEvent</li>
+        </ul>
+    </div>
+    <div class="row col-12 my-3">
+        <h5 class="font-weight-bold w-100">38. How many types of RetentionPolicy?</h5>
+        <ul class="w-100">
+            <li>SOURCE</li>
+            <li>CLASS</li>
+            <li>RUNTIME</li>
+        </ul>
+    </div>
+    <div class="row col-12 my-3">
+        <h5 class="font-weight-bold w-100">39. What is @Target?</h5>
         <p class="text-indent-3 w-100">
+                @Target will define the target element.
         </p>
     </div>
     <div class="row col-12 my-3">
-        <h5 class="font-weight-bold w-100">38. </h5>
+        <h5 class="font-weight-bold w-100">40. What are the element types are available in @Target?</h5>
+        <ul class="w-100">
+            <li>ElementType.ANNOTATION_TYPE</li>
+            <li>ElementType.CONSTRUCTOR</li>
+            <li>ElementType.FIELD</li>
+            <li>ElementType.LOCAL_VARIABLE</li>
+            <li>ElementType.METHOD</li>
+            <li>ElementType.PACKAGE</li>
+            <li>ElementType.PARAMETER</li>
+            <li>ElementType.TYPE -> Class, Interface, enum and annotation</li>
+        </ul>
+    </div>
+    <div class="row col-12 my-3">
+        <h5 class="font-weight-bold w-100">41. Give some example usage of ANNOTATION_TYPE in @Target?</h5>
         <p class="text-indent-3 w-100">
+                Answer is in the question itself. We are using @Target and @Retention only for custom annotation place.
         </p>
     </div>
     <div class="row col-12 my-3">
-        <h5 class="font-weight-bold w-100"></h5>
+        <h5 class="font-weight-bold w-100">42. How annotation used in Java super class can be inherited to sub classes?</h5>
         <p class="text-indent-3 w-100">
+                Using @Inherited, we can inherit the annoations used in super class to sub class. We can this annotation only on Custom Annoation. Not in class directly.
+        </p>
+    </div>
+    <div class="row col-12 my-3">
+        <h5 class="font-weight-bold w-100">43. How to create custom annotation?</h5>
+        <p class="text-indent-3 w-100">
+                Using @Interface , we can create custom annotation.
+        </p>
+    </div>
+    <div class="row col-12 my-3">
+        <h5 class="font-weight-bold w-100">44. What are the ways to use multiple configuration class?</h5>
+        <p class="text-indent-3 w-100">
+            1. If all the configuration is inside same package, then we can mention base package, it will take all configuration
+        </p>
+        <p class="text-indent-3 w-100">
+            2. If the configuration class in different package,<br>
+            <span class="p-5">1. We can define all the packages in @ComponentScan(basePackages="{{'{'}}}")</span><br>
+            <span class="p-5">2. We can import the config class in main config class using @Import annotation</span>
+        </p>
+    </div>
+    <div class="row col-12 my-3">
+        <h5 class="font-weight-bold w-100">45. How to avoid component scan for particular sub package in xml and annotation?</h5>
+        <p class="text-indent-3 w-100">
+            1. XML
+        </p>
+        <pre class="code_box ml-5 w-100">
+&lt;context:exclude-filter type="annotation" expression="com.demo.ignore"/&gt;
+        </pre>
+        <p class="text-indent-3 w-100">
+            2. Annoation  
+        </p>
+        <pre class="code_box ml-5 w-100">
+@ComponentScan(basePackages = "com.concretepage", 
+    includeFilters = @Filter(type = FilterType.REGEX, pattern="com.concretepage.*.*Util"),
+    excludeFilters = @Filter(type = FilterType.ASSIGNABLE_TYPE, classes = IUserService.class))
+        </pre> 
+    </div>
+    <div class="row col-12 my-3">
+        <h5 class="font-weight-bold w-100">46. What are the  Component Scan Filter Types?</h5>
+        <p class="text-indent-3 w-100">
+            <span class="font-weight-bold">ANNOTATION: </span>Component scan of classes can be included and excluded by configuring annotation name applied at class level.
+        </p>
+        <p class="text-indent-3 w-100">
+            <span class="font-weight-bol">ASSIGNABLE_TYPE: </span>Using interface name or class name that has been implemented or extended by the classes, we can include and exclude classes in component scanning.
+        </p>
+        <p class="text-indent-3 w-100">
+            <span class="font-weight-bol">ASPECTJ: </span>Using aspect expression targeting classes names, it can be included and excluded in component scanning. 
+        </p>
+        <p class="text-indent-3 w-100">
+            <span class="font-weight-bol">REGEX: </span>Using regex expression targeting classes names, it can be included and excluded in component scanning. 
+        </p>
+        <p class="text-indent-3 w-100">
+            <span class="font-weight-bol">Custom: </span>We can also create custom filter type by implementing org.springframework.core.type.TypeFilter.
+        </p>
+    </div>
+    <div class="row col-12 my-3">
+        <h5 class="font-weight-bold w-100">47. What is the difference between @Autowired and @Autowired()?</h5>
+        <p class="text-indent-3 w-100">
+                No difference both are same.
+        </p>
+    </div>
+    <div class="row col-12 my-3">
+        <h5 class="font-weight-bold w-100">48. How to load property file into class?</h5>
+        <p class="text-indent-3 w-100">
+                Using @PropertySource(classpath:test.properties), we can load property file into class.
+        </p>
+    </div>
+    <div class="row col-12 my-3">
+        <h5 class="font-weight-bold w-100">49. How to use the value from properties file after its loaded?</h5>
+        <p class="text-indent-3 w-100">
+                Using ${{'{'}}varname}, we can get the value from properties file.
         </p>
     </div>
   </div>
+  <div class="col-12 row mx-0 my-2">
+        <h4 class="col-12 text-center font-weight-bold font-italic">Happy Coding!!!</h4>
+    </div>
 </div>

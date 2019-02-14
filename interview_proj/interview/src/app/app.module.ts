@@ -22,6 +22,7 @@ import { AngularMaterialComponent } from './components/angular/angular-material.
 import { AddingUiRouterComponent } from './components/angular/tutorials/adding-ui-router.component';
 import { FormcontrolsComponent } from './components/angular/tutorials/formcontrols.component';
 import { IocComponent } from './components/spring/ioc.component';
+import { AopComponent } from './components/spring/aop.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { IocComponent } from './components/spring/ioc.component';
     AngularMaterialComponent,
     AddingUiRouterComponent,
     FormcontrolsComponent,
-    IocComponent
+    IocComponent,
+    AopComponent
   ],
   imports: [
     BrowserModule,
